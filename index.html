@@ -34,28 +34,26 @@
     padding: 1rem;
   }
     }
-    @media (max-width: 768px) {
-  .floating-buy {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 999;
-    background-color: #4f46e5;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 2rem;
-    font-weight: bold;
-    font-size: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border: none;
-    cursor: pointer;
-  }
+  .floating-buy {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
 
-  .floating-buy a {
-    text-decoration: none;
-    color: white;
-  }
+.floating-buy a {
+  display: inline-block;
+  background-color: #4f46e5;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+}
+  
     }
     .cover-gallery {
   display: flex;
@@ -143,7 +141,7 @@
   </footer>
   <div class="floating-buy">
   <a href="https://calmmindstudio.gumroad.com/l/popvb" target="_blank">
-    Buy Now
+    Buy Now 🛒
   </a>
   </div>
   
