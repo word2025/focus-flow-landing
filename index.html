@@ -57,6 +57,22 @@
     color: white;
   }
     }
+    .cover-gallery {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+  padding: 1rem;
+}
+
+.cover-gallery img {
+  flex: 0 0 80%;
+  max-width: 400px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 3px solid #eee;
+  scroll-snap-align: start;
+}
     
   </style>
 </head>
@@ -84,8 +100,11 @@
   </a>
   </section>
   
-  <section class="hero">
-    <img src="https://i.ibb.co/TB1844DC/9ad00c39-c1c0-41eb-a609-a21d7b83aaf3.png" alt="Focus Flow Planner Preview">
+  <section class="hero"><div class="cover-gallery">
+  <img src="https://i.ibb.co/TB1844DC/9ad00c39-c1c0-41eb-a609-a21d7b83aaf3.png" alt="Focus Flow Planner Cover">
+  <img src="https://your-second-image-link.com" alt="Second Page Preview">
+</div>
+
   </section>
 
   <section class="features">
