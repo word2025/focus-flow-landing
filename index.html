@@ -75,6 +75,39 @@
   transform: scale(1.03);
   transition: transform 0.3s ease;
   }
+ .cover-gallery {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cover-gallery img {
+  min-width: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #4f46e5;
+}
     
   </style>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -106,16 +139,17 @@ text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);">
   </section>
   
   <section class="hero">
-  <div class="cover-gallery" style="display: flex; overflow-x: auto; gap: 1rem; scroll-snap-type: x mandatory;">
-    <img src="https://i.ibb.co/TB1844DC/9ad00c39-c1c0-41eb-a609-a21d7b83aaf3.png" alt="Planner Cover 1" 
-      style="flex: 0 0 90%; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); scroll-snap-align: center;">
-    
-    <img src="https://i.ibb.co/fVFR3vN6/7ed820ba-a635-402b-b26b-4e4c7d9f4aae.png" alt="Planner Cover 2" 
-      style="flex: 0 0 90%; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); scroll-snap-align: center;">
-    </div>
+  <div class="cover-gallery" id="slider">
+    <img src="https://i.ibb.co/TB1844DC/9ad00c39-c1c0-41eb-a609-a21d7b83aaf3.png" alt="Planner Cover 1">
+    <img src="https://i.ibb.co/fVFR3vN6/7ed820ba-a635-402b-b26b-4e4c7d9f4aae.png" alt="Planner Cover 2">
+  </div>
+
+  <div class="slider-dots" id="slider-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+  </div>
    </section>
-
-
+  
   <section class="features" data-aos="fade-up">
     <h2>Why You'll Love It</h2>
     <ul>
@@ -173,6 +207,23 @@ text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);">
     duration: 800,
     once: true
   });
+  </script>
+  <script>
+  const slider = document.getElementById('slider');
+  const slides = slider.querySelectorAll('img');
+  const dots = document.querySelectorAll('.dot');
+  let index = 0;
+
+  function showSlide(i) {
+    slider.style.transform = `translateX(-${i * 100}%)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[i].classList.add('active');
+  }
+
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }, 4000);
   </script>
   
 </body>
