@@ -31,11 +31,13 @@
     }
 
     .cover-gallery img {
-      width: 50%;
+     width: 100vw;
       flex-shrink: 0;
       object-fit: cover;
       height: auto;
+      max-width: 100%;
     }
+
 
     .slider-dots {
       display: flex;
@@ -97,12 +99,17 @@
       transition: transform 0.3s ease;
     }
 
-    @media (max-width: 600px) {
-      body {padding: 1rem;}
-      .features ul {grid-template-columns: 1fr;}
-      .cover-gallery img {width: 100%;}
-      .cover-gallery {width: 200%;}
+     @media (max-width: 600px) {
+   body {padding: 1rem;}
+   .features ul {grid-template-columns: 1fr;}
+   .cover-gallery {
+    width: 200vw;
+   }
+  .cover-gallery img {
+    width: 100vw;
     }
+   }
+
   </style>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
