@@ -54,61 +54,48 @@
   font-size: 1rem;
 }
   
-    }
-    .cover-gallery {
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
-  scroll-snap-type: x mandatory;
-  padding: 1rem;
-}
-
-.cover-gallery img {
-  flex: 0 0 80%;
-  max-width: 400px;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border: 3px solid #eee;
-  scroll-snap-align: start;
-}
+    } 
   button:hover {
   transform: scale(1.03);
   transition: transform 0.3s ease;
   }
-.cover-gallery {
-  display: flex;
-  width: 100%;
+.cover-gallery-container {
   overflow: hidden;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-#slider {
+.cover-gallery {
   display: flex;
-  width: 200%; /* لأن لدينا صورتين، كل واحدة 100% */
-  transition: transform 0.6s ease;
+  width: 200%;
+  transition: transform 0.6s ease-in-out;
 }
 
-#slider img {
+.cover-gallery img {
   width: 100%;
-  height: auto;
   object-fit: cover;
+  flex-shrink: 0;
 }
+
 .slider-dots {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
   margin-top: 1rem;
+  gap: 0.5rem;
 }
+
 .dot {
   height: 12px;
   width: 12px;
   background-color: #ccc;
   border-radius: 50%;
-  display: inline-block;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .dot.active {
   background-color: #4f46e5;
 }
@@ -143,16 +130,17 @@ text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);">
   </section>
   
   <section class="hero">
-  <div class="cover-gallery" id="slider">
-    <img src="https://i.ibb.co/TB1844DC/9ad00c39-c1c0-41eb-a609-a21d7b83aaf3.png" alt="Planner Cover 1">
-    <img src="https://i.ibb.co/fVFR3vN6/7ed820ba-a635-402b-b26b-4e4c7d9f4aae.png" alt="Planner Cover 2">
-  </div>
-
-  <div class="slider-dots" id="slider-dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-  </div>
-   </section>
+  <div class="cover-gallery-container">
+    <div class="cover-gallery" id="slider">
+      <img src="https://i.ibb.co/TB1844DC/9ad00c39-c1c0-41eb-a609-a21d7b83aaf3.png" alt="Planner Cover 1">
+      <img src="https://i.ibb.co/fVFR3vN6/7ed820ba-a635-402b-b26b-4e4c7d9f4aae.png" alt="Planner Cover 2">
+    </div>
+    <div class="slider-dots" id="slider-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+    </div>
+    </div>
+  </section>
   
   <section class="features" data-aos="fade-up">
     <h2>Why You'll Love It</h2>
@@ -174,7 +162,6 @@ text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);">
        </li>
     </ul>
   </section>
-
 
   <section class="testimonials" data-aos="fade-right">
     <h2>What Others Are Saying</h2>
@@ -223,11 +210,19 @@ text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);">
     dots[i].classList.add('active');
   }
 
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      index = i;
+      showSlide(index);
+    });
+  });
+
   setInterval(() => {
     index = (index + 1) % dots.length;
     showSlide(index);
   }, 4000);
- </script>
+</script>
+
 
 </body>
 </html>
