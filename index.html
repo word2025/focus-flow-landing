@@ -1,166 +1,148 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Focus Flow Planners - Designed for ADHD Minds</title>
-    <meta name="description" content="Focus Flow Planner est spécialement conçu pour les esprits atteints de TDAH. Concentrez-vous, organisez votre journée et restez productif. Essayez dès maintenant le planificateur gratuit.">
+  <meta name="description" content="Focus Flow Planner est spécialement conçu pour les esprits atteints de TDAH. Concentrez-vous, organisez votre journée et restez productif. Essayez dès maintenant le planificateur gratuit.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    * {margin: 0;padding: 0;box-sizing: border-box;font-family: 'Inter', sans-serif;}
-    body {background-color: #f9f9f9;color: #333;line-height: 1.6;}
-    header {background-color: #fff;padding: 2rem;text-align: center;box-shadow: 0 2px 10px rgba(0,0,0,0.05);}
-    header h1 {font-size: 2.5rem;color: #4f46e5;}
-    header p {font-size: 1.2rem;margin-top: 0.5rem;}
-    .hero {max-width: 800px;margin: 3rem auto;text-align: center;}
-    .hero img {max-width: 100%;border-radius: 1rem;box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
-    .features, .testimonials, .cta, .email-signup {max-width: 900px;margin: 2rem auto;padding: 1rem;}
-    .features h2, .testimonials h2, .cta h2 {font-size: 2rem;margin-bottom: 1rem;color: #4f46e5;}
-    .features ul {list-style: none;display: grid;grid-template-columns: 1fr 1fr;gap: 1rem;}
-    .features li {background-color: #fff;padding: 1rem;border-radius: 1rem;box-shadow: 0 2px 8px rgba(0,0,0,0.05);display: flex;align-items: start;gap: 0.75rem;}
-    .features li img {width: 24px;height: 24px;}
-    .testimonials blockquote {background: #fff;padding: 1rem;border-left: 4px solid #4f46e5;margin: 1rem 0;border-radius: 0.5rem;box-shadow: 0 2px 6px rgba(0,0,0,0.05);}
-    .cta {text-align: center;padding: 2rem;background-color: #4f46e5;color: white;border-radius: 1rem;}
-    .cta p {font-size: 1.2rem;margin: 1rem 0;}
-    .cta button {background-color: white;color: #4f46e5;border: none;padding: 1rem 2rem;border-radius: 2rem;font-weight: bold;cursor: pointer;font-size: 1rem;}
-    .email-signup {text-align: center;}
-    .email-signup form {display: flex;flex-direction: column;align-items: center;gap: 1rem;}
-    .email-signup input[type="email"] {padding: 0.75rem 1rem;border: 1px solid #ccc;border-radius: 0.5rem;width: 100%;max-width: 400px;}
-    .email-signup button {background-color: #4f46e5;color: white;padding: 0.75rem 1.5rem;border: none;border-radius: 0.5rem;font-weight: bold;cursor: pointer;}
-    footer {text-align: center;padding: 1rem;font-size: 0.9rem;color: #999;}
-    @media (max-width: 600px) {
-  body {
-    padding: 1rem;
-  }
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif;}
+    body {background-color: #f9f9f9; color: #333; line-height: 1.6;}
+    header {background-color: #fff; padding: 2rem; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05);}
+    header h1 {font-size: 2.5rem; color: #4f46e5;}
+    header p {font-size: 1.2rem; margin-top: 0.5rem;}
+
+    .hero {max-width: 800px; margin: 3rem auto; text-align: center;}
+    
+    .cover-gallery-container {
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
     }
-  .floating-buy {
-  position: fixed;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999;
-}
 
-.floating-buy a {
-  display: inline-block;
-  background-color: #4f46e5;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 999px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  font-size: 1rem;
-}
-  
-  
-  button:hover {
-  transform: scale(1.03);
-  transition: transform 0.3s ease;
-  }
-.cover-gallery-container {
-  overflow: hidden;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-}
+    .cover-gallery {
+      display: flex;
+      width: 200%;
+      transition: transform 0.6s ease-in-out;
+    }
 
-.cover-gallery {
-  display: flex;
-  width: 200%;
-  transition: transform 0.6s ease-in-out;
-}
+    .cover-gallery img {
+      width: 50%;
+      flex-shrink: 0;
+      object-fit: cover;
+      height: auto;
+    }
 
-.cover-gallery img {
-  width: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      gap: 0.5rem;
+    }
 
+    .dot {
+      height: 12px;
+      width: 12px;
+      background-color: #ccc;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-.slider-dots {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-  gap: 0.5rem;
-}
+    .dot.active {
+      background-color: #4f46e5;
+    }
 
-.dot {
-  height: 12px;
-  width: 12px;
-  background-color: #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+    .features, .testimonials, .cta, .email-signup {max-width: 900px; margin: 2rem auto; padding: 1rem;}
+    .features h2, .testimonials h2, .cta h2 {font-size: 2rem; margin-bottom: 1rem; color: #4f46e5;}
+    .features ul {list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;}
+    .features li {background-color: #fff; padding: 1rem; border-radius: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; align-items: start; gap: 0.75rem;}
+    .features li img {width: 24px; height: 24px;}
+    .testimonials blockquote {background: #fff; padding: 1rem; border-left: 4px solid #4f46e5; margin: 1rem 0; border-radius: 0.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.05);}
+    .cta {text-align: center; padding: 2rem; background-color: #4f46e5; color: white; border-radius: 1rem;}
+    .cta p {font-size: 1.2rem; margin: 1rem 0;}
+    .cta button {background-color: white; color: #4f46e5; border: none; padding: 1rem 2rem; border-radius: 2rem; font-weight: bold; cursor: pointer; font-size: 1rem;}
+    .email-signup {text-align: center;}
+    .email-signup form {display: flex; flex-direction: column; align-items: center; gap: 1rem;}
+    .email-signup input[type="email"] {padding: 0.75rem 1rem; border: 1px solid #ccc; border-radius: 0.5rem; width: 100%; max-width: 400px;}
+    .email-signup button {background-color: #4f46e5; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 0.5rem; font-weight: bold; cursor: pointer;}
+    footer {text-align: center; padding: 1rem; font-size: 0.9rem; color: #999;}
+    
+    .floating-buy {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+    }
 
-.dot.active {
-  background-color: #4f46e5;
-}
+    .floating-buy a {
+      display: inline-block;
+      background-color: #4f46e5;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      font-size: 1rem;
+    }
 
+    button:hover {
+      transform: scale(1.03);
+      transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 600px) {
+      body {padding: 1rem;}
+      .features ul {grid-template-columns: 1fr;}
+      .cover-gallery img {width: 100%;}
+      .cover-gallery {width: 200%;}
+    }
   </style>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1 style="text-align: center; font-size: 2.5rem; font-weight: bold; 
-text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);">
-  Focus Flow Planners
-</h1>
-
+    <h1>Focus Flow Planners</h1>
     <p>Designed to help people with ADHD regain control, focus, and flow</p>
   </header>
+
   <section class="social-proof" style="text-align:center; margin: 2rem auto;">
-  <p style="font-size: 1.1rem; color: #4f46e5; font-weight: 600;">
-    ⭐ Over 1,200 users feel more focused and in control!
-  </p>
-  <p style="font-size: 1rem; color: #333; margin-top: 0.5rem;">
-    Recommended by therapists and productivity coaches.
-  </p>
+    <p style="font-size: 1.1rem; color: #4f46e5; font-weight: 600;">⭐ Over 1,200 users feel more focused and in control!</p>
+    <p style="font-size: 1rem; color: #333; margin-top: 0.5rem;">Recommended by therapists and productivity coaches.</p>
   </section>
-  
-   <section class="cta">
-  <h2>Buy Focus Flow Planners</h2>
-  <p>Start your productivity journey today!</p>
-  <a href="https://calmmindstudio.gumroad.com/l/popvb" target="_blank">
-    <button>Buy on Gumroad</button>
-  </a>
+
+  <section class="cta">
+    <h2>Buy Focus Flow Planners</h2>
+    <p>Start your productivity journey today!</p>
+    <a href="https://calmmindstudio.gumroad.com/l/popvb" target="_blank"><button>Buy on Gumroad</button></a>
   </section>
-  
+
   <section class="hero">
-  <div class="cover-gallery-container">
-    <div class="cover-gallery" id="slider">
-      <img src="https://i.ibb.co/TB1844DC/9ad00c39-c1c0-41eb-a609-a21d7b83aaf3.png" alt="Planner Cover 1">
-      <img src="https://i.ibb.co/fVFR3vN6/7ed820ba-a635-402b-b26b-4e4c7d9f4aae.png" alt="Planner Cover 2">
-    </div>
-    <div class="slider-dots" id="slider-dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-    </div>
-    </div>
+    <div class="cover-gallery-container">
+      <div class="cover-gallery" id="slider">
+        <img src="https://i.ibb.co/TB1844DC/9ad00c39-c1c0-41eb-a609-a21d7b83aaf3.png" alt="Planner Cover 1" />
+        <img src="https://i.ibb.co/fVFR3vN6/7ed820ba-a635-402b-b26b-4e4c7d9f4aae.png" alt="Planner Cover 2" />
+      </div>
+      <div class="slider-dots" id="slider-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
   </section>
-  
+
   <section class="features" data-aos="fade-up">
     <h2>Why You'll Love It</h2>
     <ul>
-      <li> <img src="https://i.ibb.co/HRMkhVx/4de85143-154f-40e8-a511-63363517bdd3.png" alt="Icon" style="width: 40px; height: 40px;">
-      Built for ADHD minds with clarity and structure
-      </li>
-      <li>
-      <img src="https://i.ibb.co/hF82Snqr/543fad62-0a10-423d-afa1-2287ff10bd53.png" alt="Icon" style="width: 40px; height: 40px;">
-       Weekly, daily, and habit trackers
-      </li>
-      <li>
-      <img src="https://i.ibb.co/20ZXQq2r/6fc3f6fc-e576-4ea5-b62a-5bd7f7b78fa7.png" alt="Icon" style="width: 40px; height: 40px;">
-       Mindfulness and mental unload exercises
-      </li>
-       <li>
-      <img src="https://i.ibb.co/WNMYYjMV/584d03c6-613b-48da-b0f1-be37b049e27d.png" alt="Icon" style="width: 40px; height: 40px;">
-      Printable, minimalist, and easy to use
-       </li>
+      <li><img src="https://i.ibb.co/HRMkhVx/4de85143-154f-40e8-a511-63363517bdd3.png" alt="Icon" style="width: 40px; height: 40px;">Built for ADHD minds with clarity and structure</li>
+      <li><img src="https://i.ibb.co/hF82Snqr/543fad62-0a10-423d-afa1-2287ff10bd53.png" alt="Icon" style="width: 40px; height: 40px;">Weekly, daily, and habit trackers</li>
+      <li><img src="https://i.ibb.co/20ZXQq2r/6fc3f6fc-e576-4ea5-b62a-5bd7f7b78fa7.png" alt="Icon" style="width: 40px; height: 40px;">Mindfulness and mental unload exercises</li>
+      <li><img src="https://i.ibb.co/WNMYYjMV/584d03c6-613b-48da-b0f1-be37b049e27d.png" alt="Icon" style="width: 40px; height: 40px;">Printable, minimalist, and easy to use</li>
     </ul>
   </section>
 
@@ -188,42 +170,37 @@ text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);">
   <footer>
     &copy; 2025 Focus Flow. All rights reserved.
   </footer>
+
   <div class="floating-buy">
-  <a href="https://calmmindstudio.gumroad.com/l/popvb" target="_blank">
-    Buy Now 🛒
-  </a>
+    <a href="https://calmmindstudio.gumroad.com/l/popvb" target="_blank">Buy Now 🛒</a>
   </div>
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-  AOS.init({
-    duration: 800,
-    once: true
-  });
+    AOS.init({ duration: 800, once: true });
   </script>
   <script>
-  const slider = document.getElementById('slider');
-  const dots = document.querySelectorAll('.dot');
-  let index = 0;
+    const slider = document.getElementById('slider');
+    const dots = document.querySelectorAll('.dot');
+    let index = 0;
 
-  function showSlide(i) {
-    slider.style.transform = `translateX(-${i * 100}%)`;
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[i].classList.add('active');
-  }
+    function showSlide(i) {
+      slider.style.transform = `translateX(-${i * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[i].classList.add('active');
+    }
 
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      index = i;
-      showSlide(index);
-    });
-  });
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        index = i;
+        showSlide(index);
+      });
+    });
 
-  setInterval(() => {
-    index = (index + 1) % dots.length;
-    showSlide(index);
-  }, 4000);
-</script>
-
-
+    setInterval(() => {
+      index = (index + 1) % dots.length;
+      showSlide(index);
+    }, 4000);
+  </script>
 </body>
 </html>
