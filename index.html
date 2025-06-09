@@ -75,39 +75,24 @@
   transform: scale(1.03);
   transition: transform 0.3s ease;
   }
- .cover-gallery {
-  width: 100%;
+  .cover-gallery {
   display: flex;
+  width: 100%;
   overflow: hidden;
+  position: relative;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .cover-gallery img {
-  min-width: 100%;
+  flex-shrink: 0;
+  width: 100%;
+  height: auto;
   object-fit: cover;
   transition: transform 0.8s ease;
 }
+    
 
-.slider-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-.dot {
-  height: 12px;
-  width: 12px;
-  background-color: #ccc;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-}
-
-.dot.active {
-  background-color: #4f46e5;
-}
     
   </style>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
