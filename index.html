@@ -77,6 +77,7 @@
   }
     
   </style>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -104,7 +105,8 @@ text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);">
   </a>
   </section>
   
-  <section class="hero"><div class="cover-gallery">
+  <section class="hero">
+  <div class="cover-gallery" data-aos="zoom-in">
   <img src="https://i.ibb.co/TB1844DC/9ad00c39-c1c0-41eb-a609-a21d7b83aaf3.png" alt="Focus Flow Planner Cover">
   <img src="https://your-second-image-link.com" alt="Second Page Preview">
 </div>
@@ -162,6 +164,13 @@ text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);">
     Buy Now 🛒
   </a>
   </div>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+  </script>
   
 </body>
 </html>
