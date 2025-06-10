@@ -118,11 +118,43 @@
     width: 100vw;
     }
    }
+    .announcement-bar {
+  background-color: #facc15; /* لون أصفر جذاب */
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0.75rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
+.announcement-bar p {
+  display: inline-block;
+  animation: scroll-left 15s linear infinite;
+  font-weight: 600;
+  color: #1e1e1e;
+  font-size: 1rem;
+  padding-left: 100%;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+    
   </style>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+  <div class="announcement-bar">
+  <p>✨ The free planner is now available — scroll down to download it!</p>
+  </div>
+  
   <header>
     <h1>Focus Flow Planners</h1>
     <p>Designed to help people with ADHD regain control, focus, and flow</p>
